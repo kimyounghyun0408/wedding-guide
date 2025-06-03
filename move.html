@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>결혼식장 길찾기 테스트</title>
+  <style>
+    body {
+      background-color: #ffffff;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    h2, h3 {
+      color: #004aad;
+    }
+    button {
+      background-color: #004aad;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px 0;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #0066cc;
+    }
+    .section {
+      background-color: #e6f0ff;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: none;
+    }
+    video {
+      width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>실내 이동 안내</h2>
+  <p>엘리베이터 3층 → 왼쪽으로 꺾어서 ○○홀 → 직진</p>
+  <img src="indoor_path.jpg" alt="실내 사진" width="100%" style="margin-bottom:20px;">
+
+  <h3>교통수단별 안내</h3>
+
+  <button onclick="toggleSection('car')">차량</button>
+  <div id="car" class="section">
+    <p>차량으로 오시는 분들을 위한 안내 영상입니다.</p>
+    <video controls>
+      <source src="car.mp4" type="video/mp4">
+      당신의 브라우저는 video 태그를 지원하지 않습니다.
+    </video>
+  </div>
+
+  <button onclick="toggleSection('bus')">버스</button>
+  <div id="bus" class="section">
+    <p>버스로 오시는 분들을 위한 안내 영상입니다.</p>
+    <video controls>
+      <source src="bus.mp4" type="video/mp4">
+      당신의 브라우저는 video 태그를 지원하지 않습니다.
+    </video>
+  </div>
+
+  <button onclick="toggleSection('subway')">지하철</button>
+  <div id="subway" class="section">
+    <p>지하철로 오시는 분들을 위한 안내 영상입니다.</p>
+    <video controls>
+      <source src="subway.mp4" type="video/mp4">
+      당신의 브라우저는 video 태그를 지원하지 않습니다.
+    </video>
+  </div>
+
+  <script>
+    function toggleSection(id) {
+      var sections = ['car', 'bus', 'subway'];
+      sections.forEach(function(section) {
+        document.getElementById(section).style.display = (section === id)
+          ? (document.getElementById(section).style.display === 'none' ? 'block' : 'none')
+          : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
